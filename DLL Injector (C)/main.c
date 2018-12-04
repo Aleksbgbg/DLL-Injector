@@ -27,9 +27,6 @@ int main(const int argumentCount, char** argumentValues)
         return EXIT_FAILURE;
     }
 
-    DWORD processId;
-    HANDLE mainThreadHandle = NULL;
-
     const char* targetSwitch = argumentValues[2];
 
     if (strlen(targetSwitch) != 2 || targetSwitch[0] != '-')
@@ -40,6 +37,9 @@ int main(const int argumentCount, char** argumentValues)
 
     const char processIdentifierSwitch = (char)tolower(argumentValues[2][1]);
     char* processIdentifier = argumentValues[3];
+
+    DWORD processId;
+    HANDLE mainThreadHandle = NULL;
 
     switch (processIdentifierSwitch)
     {
