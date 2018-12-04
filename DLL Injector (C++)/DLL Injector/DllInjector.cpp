@@ -1,4 +1,5 @@
 #include "DllInjector.h"
+
 #include <stdexcept>
 
 DllInjector::DllInjector(Process& process)
