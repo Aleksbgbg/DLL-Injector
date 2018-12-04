@@ -6,14 +6,17 @@ class Process
 {
 public:
 	Process(const Process&) = delete;
-	Process(Process&&) noexcept;
+	Process(Process&& source) noexcept;
 
 public:
 	~Process();
 
 public:
 	Process& operator=(const Process&) = delete;
-	Process& operator=(Process&&) noexcept;
+	Process& operator=(Process&& source) noexcept;
+
+public:
+	static Process Create(char* location);
 
 private:
 	explicit Process(const DWORD id);
