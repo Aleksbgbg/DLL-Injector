@@ -7,6 +7,7 @@
 Process::Process(const DWORD id)
 	:
 	id{ id },
+	handle{ nullptr },
 	mainThread{ nullptr }
 {
 }
@@ -14,6 +15,7 @@ Process::Process(const DWORD id)
 Process::Process(const DWORD id, HANDLE mainThread)
 	:
 	id{ id },
+	handle{ nullptr },
 	mainThread{ mainThread }
 {
 }
@@ -21,9 +23,11 @@ Process::Process(const DWORD id, HANDLE mainThread)
 Process::Process(Process&& source) noexcept
 	:
 	id{ source.id },
+	handle{ source.handle },
 	mainThread{ source.mainThread }
 {
 	source.id = 0;
+	source.handle = nullptr;
 	source.mainThread = nullptr;
 }
 
@@ -43,9 +47,11 @@ Process::~Process()
 Process& Process::operator=(Process&& source) noexcept
 {
 	id = source.id;
+	handle = source.handle;
 	mainThread = source.mainThread;
 
 	source.id = 0;
+	source.handle = nullptr;
 	source.mainThread = nullptr;
 
 	return *this;
