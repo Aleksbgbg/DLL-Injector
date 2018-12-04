@@ -47,3 +47,19 @@ DWORD FindProcessByName(const char* name)
 
     return processId;
 }
+
+DWORD FindProcessByWindowTitle(const char* windowTitle)
+{
+    HWND windowHandle = FindWindow(NULL, windowTitle);
+
+    if (windowHandle == NULL)
+    {
+        return 0;
+    }
+
+    DWORD processId;
+
+    GetWindowThreadProcessId(windowHandle, &processId);
+
+    return processId;
+}
