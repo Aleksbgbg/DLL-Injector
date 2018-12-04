@@ -1,5 +1,8 @@
 #include "Process.h"
+
 #include <stdexcept>
+
+#include "TlHelp32.h"
 
 Process::Process(const DWORD id)
 	:
@@ -52,6 +55,30 @@ Process Process::Create(char* location)
 	}
 
 	throw std::runtime_error{ "Cannot create process at specified location." };
+}
+
+Process Process::FindByName(const char* name)
+{
+	HANDLE snapshotHandle = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+
+	PROCESSENTRY32 processEntry = { };
+	processEntry.dwSize = sizeof(PROCESSENTRY32);
+
+	if (Process32First(snapshotHandle, &processEntry))
+	{
+		do
+		{
+			if (strcmp(processEntry.szExeFile, name) == 0)
+			{
+				CloseHandle(snapshotHandle);
+				return Process{ processEntry.th32ProcessID };
+			}
+		} while (Process32Next(snapshotHandle, &processEntry));
+	}
+
+	CloseHandle(snapshotHandle);
+
+	throw std::runtime_error{ "Process not found." };
 }
 
 Process::~Process()

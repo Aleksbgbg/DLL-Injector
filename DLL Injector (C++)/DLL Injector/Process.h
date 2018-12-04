@@ -17,6 +17,7 @@ public:
 
 public:
 	static Process Create(char* location);
+	static Process FindByName(const char* name);
 
 private:
 	explicit Process(const DWORD id);
