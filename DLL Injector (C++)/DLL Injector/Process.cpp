@@ -81,6 +81,22 @@ Process Process::FindByName(const char* name)
 	throw std::runtime_error{ "Process not found." };
 }
 
+Process Process::FindByWindowTitle(const char* windowTitle)
+{
+	HWND windowHandle = FindWindow(nullptr, windowTitle);
+
+	if (windowHandle == nullptr)
+	{
+		throw std::runtime_error{ "Could not find window." };
+	}
+
+	DWORD processId;
+
+	GetWindowThreadProcessId(windowHandle, &processId);
+
+	return Process{ processId };
+}
+
 Process::~Process()
 {
 	if (mainThread != nullptr)

@@ -18,6 +18,7 @@ public:
 public:
 	static Process Create(char* location);
 	static Process FindByName(const char* name);
+	static Process FindByWindowTitle(const char* windowTitle);
 
 private:
 	explicit Process(const DWORD id);
