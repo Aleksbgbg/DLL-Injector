@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 #include "FindProcess.h"
+#include "Inject.h"
 
 #define USAGE "DllInject.exe <DLL_LOCATION> [-c <PROCESS_LOCATION> | -n <PROCESS_NAME> | -w <PROCESS_WINDOW_TITLE>]"
 
@@ -17,7 +19,9 @@ int main(const int argumentCount, char** argumentValues)
         return EXIT_FAILURE;
     }
 
-    if (GetFileAttributes(argumentValues[1]) == INVALID_FILE_ATTRIBUTES)
+    const char* dllLocation = argumentValues[1];
+
+    if (GetFileAttributes(dllLocation) == INVALID_FILE_ATTRIBUTES)
     {
         printf("DLL file does not exist.");
         return EXIT_FAILURE;
@@ -62,9 +66,11 @@ int main(const int argumentCount, char** argumentValues)
         return EXIT_FAILURE;
     }
 
-    printf("Process found. ID: %i", processId);
+    printf("Process found. ID: %i\nInjecting...\n", processId);
 
-    // Inject here
+    bool injectionSuccessful = InjectDll(processId, dllLocation);
+
+    printf(injectionSuccessful ? "Injection successful." : "Injection unsuccessful.");
 
     if (processIdentifierSwitch == 'c')
     {
