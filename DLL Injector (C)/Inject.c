@@ -23,15 +23,15 @@ bool InjectDll(const DWORD processId, const char* dllLocation)
         return false;
     }
 
-    LPVOID dllAddress = VirtualAllocEx(processHandle, NULL, strlen(dllLocation), MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+    LPVOID dllLocationAllocationAddress = VirtualAllocEx(processHandle, NULL, strlen(dllLocation), MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 
-    if (dllAddress == NULL)
+    if (dllLocationAllocationAddress == NULL)
     {
         CloseHandle(processHandle);
         return false;
     }
 
-    const BOOL memoryWriteSucceeded = WriteProcessMemory(processHandle, dllAddress, dllLocation, strlen(dllLocation), NULL);
+    const BOOL memoryWriteSucceeded = WriteProcessMemory(processHandle, dllLocationAllocationAddress, dllLocation, strlen(dllLocation), NULL);
 
     if (memoryWriteSucceeded == 0)
     {
@@ -39,7 +39,7 @@ bool InjectDll(const DWORD processId, const char* dllLocation)
         return false;
     }
 
-    HANDLE dllThreadHandle = CreateRemoteThread(processHandle, NULL, 0, (LPTHREAD_START_ROUTINE)loadLibrary, dllAddress, 0, NULL);
+    HANDLE dllThreadHandle = CreateRemoteThread(processHandle, NULL, 0, (LPTHREAD_START_ROUTINE)loadLibrary, dllLocationAllocationAddress, 0, NULL);
 
     CloseHandle(processHandle);
 
