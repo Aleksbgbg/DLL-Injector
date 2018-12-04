@@ -16,6 +16,9 @@ public:
 	Process& operator=(Process&& source) noexcept;
 
 public:
+	HANDLE Open();
+
+public:
 	static Process Create(char* location);
 	static Process FindByName(const char* name);
 	static Process FindByWindowTitle(const char* windowTitle);
@@ -26,5 +29,6 @@ private:
 
 private:
 	DWORD id;
+	HANDLE handle;
 	HANDLE mainThread;
 };

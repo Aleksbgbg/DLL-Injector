@@ -27,6 +27,19 @@ Process::Process(Process&& source) noexcept
 	source.mainThread = nullptr;
 }
 
+Process::~Process()
+{
+	if (handle != nullptr)
+	{
+		CloseHandle(handle);
+	}
+
+	if (mainThread != nullptr)
+	{
+		CloseHandle(mainThread);
+	}
+}
+
 Process& Process::operator=(Process&& source) noexcept
 {
 	id = source.id;
@@ -36,6 +49,20 @@ Process& Process::operator=(Process&& source) noexcept
 	source.mainThread = nullptr;
 
 	return *this;
+}
+
+HANDLE Process::Open()
+{
+	HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, false, id);
+
+	if (handle == nullptr)
+	{
+		throw std::runtime_error{ "Could not open process." };
+	}
+
+	this->handle = handle;
+
+	return handle;
 }
 
 Process Process::Create(char* location)
@@ -95,12 +122,4 @@ Process Process::FindByWindowTitle(const char* windowTitle)
 	GetWindowThreadProcessId(windowHandle, &processId);
 
 	return Process{ processId };
-}
-
-Process::~Process()
-{
-	if (mainThread != nullptr)
-	{
-		CloseHandle(mainThread);
-	}
 }
