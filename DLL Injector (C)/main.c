@@ -23,7 +23,7 @@ int main(const int argumentCount, char** argumentValues)
 
     if (GetFileAttributes(dllLocation) == INVALID_FILE_ATTRIBUTES)
     {
-        printf("DLL file does not exist.");
+        printf("DLL file does not exist.\n");
         return EXIT_FAILURE;
     }
 
@@ -62,7 +62,7 @@ int main(const int argumentCount, char** argumentValues)
 
     if (processId == 0)
     {
-        printf("Could not find process.");
+        printf("Could not find process.\n");
         return EXIT_FAILURE;
     }
 
@@ -70,7 +70,7 @@ int main(const int argumentCount, char** argumentValues)
 
     bool injectionSuccessful = InjectDll(processId, dllLocation);
 
-    printf(injectionSuccessful ? "Injection successful." : "Injection unsuccessful.");
+    printf(injectionSuccessful ? "Injection successful.\n" : "Injection unsuccessful.\n");
 
     if (processIdentifierSwitch == 'c')
     {
