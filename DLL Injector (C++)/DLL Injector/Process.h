@@ -16,6 +16,8 @@ public:
 	Process& operator=(Process&& source) noexcept;
 
 public:
+	void ResumeMainThread() const;
+
 	HANDLE Open();
 
 public:

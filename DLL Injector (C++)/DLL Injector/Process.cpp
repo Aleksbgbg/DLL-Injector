@@ -57,6 +57,16 @@ Process& Process::operator=(Process&& source) noexcept
 	return *this;
 }
 
+void Process::ResumeMainThread() const
+{
+	if (mainThread == nullptr)
+	{
+		throw std::runtime_error{ "Main thread does not exist." };
+	}
+
+	ResumeThread(mainThread);
+}
+
 HANDLE Process::Open()
 {
 	HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, false, id);
