@@ -5,6 +5,7 @@
 class Process
 {
 public:
+	Process();
 	Process(const Process&) = delete;
 	Process(Process&& source) noexcept;
 

@@ -20,6 +20,14 @@ Process::Process(const DWORD id, HANDLE mainThread)
 {
 }
 
+Process::Process()
+	:
+	id{ 0 },
+	handle{ nullptr },
+	mainThread{ nullptr }
+{
+}
+
 Process::Process(Process&& source) noexcept
 	:
 	id{ source.id },
