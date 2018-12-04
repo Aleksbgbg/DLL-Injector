@@ -115,9 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DllInjector.h" />
     <ClInclude Include="Process.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DllInjector.cpp" />
     <ClCompile Include="Process.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
