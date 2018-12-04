@@ -8,7 +8,7 @@
 
 void WriteInvalidUsage(const char* message)
 {
-    printf("Invalid usage. %s.\nUsage: %s", message, USAGE);
+    printf("Invalid usage. %s.\nUsage: %s\n", message, USAGE);
 }
 
 int main(const int argumentCount, char** argumentValues)
