@@ -3,5 +3,5 @@ project(DLL_Injector__C_)
 
 set(CMAKE_C_STANDARD 11)
 
-set(SOURCE_FILES main.c FindProcess.c FindProcess.h)
+set(SOURCE_FILES main.c FindProcess.c FindProcess.h Inject.c Inject.h)
 add_executable(DLL_Injector__C_ ${SOURCE_FILES})
