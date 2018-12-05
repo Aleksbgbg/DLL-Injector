@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 #include "TlHelp32.h"
+#include <cassert>
 
 Process::Process(const DWORD id)
 	:
@@ -54,6 +55,8 @@ Process::~Process()
 
 Process& Process::operator=(Process&& source) noexcept
 {
+	assert(this != &source);
+
 	id = source.id;
 	handle = source.handle;
 	mainThread = source.mainThread;
