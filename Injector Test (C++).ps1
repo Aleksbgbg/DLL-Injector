@@ -1,0 +1,1 @@
+& ".\Injector Test.ps1" -InjectorPath "DLL Injector (C++)\Release\DLL Injector.exe"
