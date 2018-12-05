@@ -30,6 +30,7 @@
             // Register Services
             _container.Singleton<IWindowManager, WindowManager>();
 
+            _container.Singleton<IDllInjectionService, DllInjectionService>();
             _container.Singleton<IFileBrowserService, FileBrowserService>();
             _container.Singleton<IProcessService, ProcessService>();
 
