@@ -3,9 +3,16 @@ Simple DLL injector.
 
 Both C (procedural) and C++ (OOP) variants have been included, although they both function quite similarly.
 
-Easily modifiable to work in a C# environment.
+A C# WPF interface has also been created.
 
 Can be used to patch functions of the target process to execute custom code.
+
+## User Interface Example
+### Process List
+![Process List](/Preview/Process%20List.png)
+
+### Injection Example
+![Injection Example](/Preview/Injection%20Example.png)
 
 ## How does it work?
 Quite simply.
