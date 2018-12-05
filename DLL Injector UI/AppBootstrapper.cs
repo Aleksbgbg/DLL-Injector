@@ -6,6 +6,8 @@
 
     using Caliburn.Micro;
 
+    using Dll.Injector.Services;
+    using Dll.Injector.Services.Interfaces;
     using Dll.Injector.ViewModels;
     using Dll.Injector.ViewModels.Interfaces;
 
@@ -27,6 +29,8 @@
         {
             // Register Services
             _container.Singleton<IWindowManager, WindowManager>();
+
+            _container.Singleton<IProcessService, ProcessService>();
 
             // Register ViewModels
             _container.Singleton<IShellViewModel, ShellViewModel>();
