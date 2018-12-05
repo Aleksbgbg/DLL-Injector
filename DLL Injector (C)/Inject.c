@@ -1,6 +1,7 @@
 #include "Inject.h"
 
-bool InjectDll(const DWORD processId, const char* dllLocation)
+__declspec(dllexport)
+bool __stdcall InjectDll(const DWORD processId, const char* dllLocation)
 {
     HMODULE kernel32Handle = GetModuleHandle("kernel32.dll");
 

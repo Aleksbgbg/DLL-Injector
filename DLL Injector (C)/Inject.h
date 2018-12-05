@@ -5,6 +5,7 @@
 
 #include <Windows.h>
 
-bool InjectDll(const DWORD processId, const char* dllLocation);
+__declspec(dllexport)
+bool __stdcall InjectDll(const DWORD processId, const char* dllLocation);
 
 #endif // DLL_INJECTOR_C_INJECT_H
