@@ -8,20 +8,32 @@
              xmlns:ViewModels="clr-namespace:Dll.Injector.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance ViewModels:MainViewModel}">
-    <ComboBox ItemsSource="{Binding Processes, Mode=OneTime}"
-              SelectedIndex="{Binding SelectedProcess}"
-              VerticalAlignment="Top">
-        <ComboBox.ItemTemplate>
-            <DataTemplate>
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="{Binding Mode=OneTime, Converter={x:Static Converters:ProcessImageConverter.Default}}"
-                           Height="15" Width="15"/>
-                    <TextBlock FontFamily="Consolas" Margin="5, 0">
-                        <Run Text="{Binding Id, Mode=OneTime, StringFormat={}{0:X8}}"/> -
-                        <Run Text="{Binding ProcessName, Mode=OneTime}"/>
-                    </TextBlock>
-                </StackPanel>
-            </DataTemplate>
-        </ComboBox.ItemTemplate>
-    </ComboBox>
+    <StackPanel>
+        <ComboBox ItemsSource="{Binding Processes, Mode=OneTime}"
+                  SelectedIndex="{Binding SelectedProcess}"
+                  VerticalAlignment="Top">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Image
+                            Source="{Binding Mode=OneTime, Converter={x:Static Converters:ProcessImageConverter.Default}}"
+                            Height="15" Width="15"/>
+                        <TextBlock FontFamily="Consolas" Margin="5, 0">
+                            <Run Text="{Binding Id, Mode=OneTime, StringFormat={}{0:X8}}"/> -
+                            <Run Text="{Binding ProcessName, Mode=OneTime}"/>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <DockPanel>
+            <Button DockPanel.Dock="Right"
+                    Content="Open DLL" Width="75"
+                    Caliburn:Message.Attach="OpenDll"/>
+
+            <TextBox Text="{Binding DllPath, Mode=OneWay}"
+                     IsReadOnly="True" IsReadOnlyCaretVisible="True"/>
+        </DockPanel>
+    </StackPanel>
 </UserControl>

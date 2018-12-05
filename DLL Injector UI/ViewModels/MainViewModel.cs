@@ -11,8 +11,11 @@
 
     internal class MainViewModel : ViewModelBase, IMainViewModel
     {
-        public MainViewModel(IProcessService processService)
+        private readonly IFileBrowserService _fileBrowserService;
+
+        public MainViewModel(IProcessService processService, IFileBrowserService fileBrowserService)
         {
+            _fileBrowserService = fileBrowserService;
             Processes = new BindableCollection<Process>(processService.ListProcesses());
 
             CollectionViewSource.GetDefaultView(Processes).SortDescriptions.Add(new SortDescription(nameof(Process.StartTime), ListSortDirection.Descending));
@@ -31,6 +34,30 @@
 
                 _selectedProcess = value;
                 NotifyOfPropertyChange(() => SelectedProcess);
+            }
+        }
+
+        private string _dllPath = string.Empty;
+        public string DllPath
+        {
+            get => _dllPath;
+
+            private set
+            {
+                if (_dllPath == value) return;
+
+                _dllPath = value;
+                NotifyOfPropertyChange(() => DllPath);
+            }
+        }
+
+        public void OpenDll()
+        {
+            string dllPath = _fileBrowserService.OpenFile("Select DLL to inject", "Dynamic Link Library (DLL)|*.dll");
+
+            if (dllPath != null)
+            {
+                DllPath = dllPath;
             }
         }
     }
