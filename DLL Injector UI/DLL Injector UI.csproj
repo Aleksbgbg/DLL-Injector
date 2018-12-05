@@ -76,6 +76,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Compile Include="Converters\ProcessImageConverter.cs" />
+    <Compile Include="Services\FileBrowserService.cs" />
+    <Compile Include="Services\Interfaces\IFileBrowserService.cs" />
     <Compile Include="Services\Interfaces\IProcessService.cs" />
     <Compile Include="Services\ProcessService.cs" />
     <Compile Include="Views\MainView.xaml.cs">
