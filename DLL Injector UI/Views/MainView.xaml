@@ -7,4 +7,15 @@
              xmlns:ViewModels="clr-namespace:Dll.Injector.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance ViewModels:MainViewModel}">
+    <ComboBox ItemsSource="{Binding Processes, Mode=OneTime}"
+              SelectedIndex="{Binding SelectedProcess}"
+              VerticalAlignment="Top">
+        <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock FontFamily="Consolas">
+                    <Run Text="{Binding Id, Mode=OneTime, StringFormat={}{0:X8}}"/> - <Run Text="{Binding ProcessName, Mode=OneTime}"/>
+                </TextBlock>
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
+    </ComboBox>
 </UserControl>
