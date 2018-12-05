@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{C2BBE215-2D15-40CB-992B-E79A4196DF39}</ProjectGuid>
-    <RootNamespace>SampleConsole</RootNamespace>
+    <ProjectGuid>{61482735-FEB7-4925-9A72-53F138E3C8E6}</ProjectGuid>
+    <RootNamespace>DLLInjectorC</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -115,7 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DllInjector.hpp" />
+    <ClInclude Include="Process.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DllInjector.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Process.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

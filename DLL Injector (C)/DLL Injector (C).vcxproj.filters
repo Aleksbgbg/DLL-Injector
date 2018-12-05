@@ -15,21 +15,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Process.h">
+    <ClInclude Include="FindProcess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DllInjector.h">
+    <ClInclude Include="Inject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Process.cpp">
+    <ClCompile Include="FindProcess.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DllInjector.cpp">
+    <ClCompile Include="Inject.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

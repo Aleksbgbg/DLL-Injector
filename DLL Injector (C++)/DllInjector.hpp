@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Process.h"
+#include "Process.hpp"
 
 class DllInjector
 {

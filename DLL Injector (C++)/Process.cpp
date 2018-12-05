@@ -1,9 +1,9 @@
-#include "Process.h"
+#include "Process.hpp"
 
+#include <cassert>
 #include <stdexcept>
 
 #include "TlHelp32.h"
-#include <cassert>
 
 Process::Process(const DWORD id)
 	:

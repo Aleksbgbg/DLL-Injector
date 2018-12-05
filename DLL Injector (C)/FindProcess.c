@@ -6,10 +6,10 @@
 
 DWORD FindProcessByCreation(char* location, HANDLE* mainThreadHandle)
 {
-    STARTUPINFO startupInfo = { };
+    STARTUPINFO startupInfo = { 0 };
     startupInfo.cb = sizeof(STARTUPINFO);
 
-    PROCESS_INFORMATION processInformation = { };
+    PROCESS_INFORMATION processInformation = { 0 };
 
     // Passing the process location as a command-line argument instead of an application name
     // will allow the user to insert custom command line parameters when creating the process
@@ -26,7 +26,7 @@ DWORD FindProcessByName(const char* name)
 {
     HANDLE systemProcessesSnapshotHandle = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
 
-    PROCESSENTRY32 processEntry = { };
+    PROCESSENTRY32 processEntry = { 0 };
     processEntry.dwSize = sizeof(PROCESSENTRY32);
 
     DWORD processId = 0;

@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "Process.h"
-#include "DllInjector.h"
+#include "Process.hpp"
+#include "DllInjector.hpp"
 
 #define USAGE "DllInject.exe <DLL_LOCATION> [-c <PROCESS_LOCATION> | -n <PROCESS_NAME> | -w <PROCESS_WINDOW_TITLE>]"
 

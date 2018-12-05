@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLL Injector (C)", "DLL Injector (C)\DLL Injector (C).vcxproj", "{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Injectors", "Injectors", "{F6C2DB8C-61A1-485F-BF24-07C48923F9A7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLL Injector (C++)", "DLL Injector (C++)\DLL Injector (C++).vcxproj", "{61482735-FEB7-4925-9A72-53F138E3C8E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Injection Sample", "Injection Sample", "{BC46A12C-1FE1-4369-AA95-E6401BEAD7B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sample DLL", "Injection Sample\Sample DLL\Sample DLL.vcxproj", "{DC723612-9456-4643-8A53-423A41F8C4FB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Sample Console", "Injection Sample\Sample Console\Sample Console.vcxproj", "{C2BBE215-2D15-40CB-992B-E79A4196DF39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Debug|x64.ActiveCfg = Debug|x64
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Debug|x64.Build.0 = Debug|x64
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Debug|x86.ActiveCfg = Debug|Win32
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Debug|x86.Build.0 = Debug|Win32
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Release|x64.ActiveCfg = Release|x64
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Release|x64.Build.0 = Release|x64
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Release|x86.ActiveCfg = Release|Win32
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2}.Release|x86.Build.0 = Release|Win32
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Debug|x64.ActiveCfg = Debug|x64
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Debug|x64.Build.0 = Debug|x64
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Debug|x86.ActiveCfg = Debug|Win32
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Debug|x86.Build.0 = Debug|Win32
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Release|x64.ActiveCfg = Release|x64
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Release|x64.Build.0 = Release|x64
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Release|x86.ActiveCfg = Release|Win32
+		{61482735-FEB7-4925-9A72-53F138E3C8E6}.Release|x86.Build.0 = Release|Win32
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Debug|x64.ActiveCfg = Debug|x64
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Debug|x64.Build.0 = Debug|x64
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Debug|x86.ActiveCfg = Debug|Win32
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Debug|x86.Build.0 = Debug|Win32
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Release|x64.ActiveCfg = Release|x64
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Release|x64.Build.0 = Release|x64
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Release|x86.ActiveCfg = Release|Win32
+		{DC723612-9456-4643-8A53-423A41F8C4FB}.Release|x86.Build.0 = Release|Win32
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Debug|x64.ActiveCfg = Debug|x64
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Debug|x64.Build.0 = Debug|x64
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Debug|x86.ActiveCfg = Debug|Win32
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Debug|x86.Build.0 = Debug|Win32
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Release|x64.ActiveCfg = Release|x64
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Release|x64.Build.0 = Release|x64
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Release|x86.ActiveCfg = Release|Win32
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A8D0B61-60EE-456B-B0A8-123B70EB11F2} = {F6C2DB8C-61A1-485F-BF24-07C48923F9A7}
+		{61482735-FEB7-4925-9A72-53F138E3C8E6} = {F6C2DB8C-61A1-485F-BF24-07C48923F9A7}
+		{DC723612-9456-4643-8A53-423A41F8C4FB} = {BC46A12C-1FE1-4369-AA95-E6401BEAD7B8}
+		{C2BBE215-2D15-40CB-992B-E79A4196DF39} = {BC46A12C-1FE1-4369-AA95-E6401BEAD7B8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {602E2938-2033-407A-8A10-1B1068037012}
+	EndGlobalSection
+EndGlobal
