@@ -8,9 +8,10 @@
              xmlns:ViewModels="clr-namespace:Dll.Injector.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance ViewModels:MainViewModel}">
-    <StackPanel>
-        <ComboBox ItemsSource="{Binding Processes, Mode=OneTime}"
-                  SelectedIndex="{Binding SelectedProcess}"
+    <DockPanel>
+        <ComboBox DockPanel.Dock="Top"
+                  ItemsSource="{Binding Processes, Mode=OneTime}"
+                  SelectedItem="{Binding SelectedProcess}"
                   VerticalAlignment="Top">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -27,7 +28,7 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
 
-        <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
             <Button DockPanel.Dock="Right"
                     Content="Open DLL" Width="75"
                     Caliburn:Message.Attach="OpenDll"/>
@@ -35,5 +36,11 @@
             <TextBox Text="{Binding DllPath, Mode=OneWay}"
                      IsReadOnly="True" IsReadOnlyCaretVisible="True"/>
         </DockPanel>
-    </StackPanel>
+
+        <Button Content="Inject"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="75"
+                Caliburn:Message.Attach="Inject"/>
+    </DockPanel>
 </UserControl>

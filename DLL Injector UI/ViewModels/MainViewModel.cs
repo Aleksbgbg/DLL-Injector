@@ -11,11 +11,15 @@
 
     internal class MainViewModel : ViewModelBase, IMainViewModel
     {
+        private readonly IDllInjectionService _dllInjectionService;
+
         private readonly IFileBrowserService _fileBrowserService;
 
-        public MainViewModel(IProcessService processService, IFileBrowserService fileBrowserService)
+        public MainViewModel(IDllInjectionService dllInjectionService, IFileBrowserService fileBrowserService, IProcessService processService)
         {
+            _dllInjectionService = dllInjectionService;
             _fileBrowserService = fileBrowserService;
+
             Processes = new BindableCollection<Process>(processService.ListProcesses());
 
             CollectionViewSource.GetDefaultView(Processes).SortDescriptions.Add(new SortDescription(nameof(Process.StartTime), ListSortDirection.Descending));
@@ -34,6 +38,7 @@
 
                 _selectedProcess = value;
                 NotifyOfPropertyChange(() => SelectedProcess);
+                NotifyOfPropertyChange(() => CanInject);
             }
         }
 
@@ -48,8 +53,11 @@
 
                 _dllPath = value;
                 NotifyOfPropertyChange(() => DllPath);
+                NotifyOfPropertyChange(() => CanInject);
             }
         }
+
+        public bool CanInject => SelectedProcess != null && !string.IsNullOrEmpty(DllPath);
 
         public void OpenDll()
         {
@@ -59,6 +67,11 @@
             {
                 DllPath = dllPath;
             }
+        }
+
+        public void Inject()
+        {
+            _dllInjectionService.Inject((uint)SelectedProcess.Id, DllPath);
         }
     }
 }
