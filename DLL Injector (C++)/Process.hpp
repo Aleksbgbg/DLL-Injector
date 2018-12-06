@@ -2,6 +2,8 @@
 
 #include "Windows.h"
 
+typedef void (*id_consumer)(const DWORD);
+
 class Process
 {
 public:
@@ -18,6 +20,7 @@ public:
 
 public:
 	void ResumeMainThread() const;
+	void WithId(const id_consumer consumer) const;
 
 	HANDLE Open();
 

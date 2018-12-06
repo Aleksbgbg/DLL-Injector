@@ -78,6 +78,11 @@ void Process::ResumeMainThread() const
 	ResumeThread(mainThread);
 }
 
+void Process::WithId(const id_consumer consumer) const
+{
+	consumer(id);
+}
+
 HANDLE Process::Open()
 {
 	HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, false, id);
