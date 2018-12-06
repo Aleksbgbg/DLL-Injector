@@ -5,6 +5,11 @@
 
 #define USAGE "DllInject.exe <DLL_LOCATION> [-c <PROCESS_LOCATION> | -n <PROCESS_NAME> | -w <PROCESS_WINDOW_TITLE>]"
 
+void PrintId(const DWORD id)
+{
+	std::cout << id;
+}
+
 void WriteInvalidUsage(const char* message)
 {
 	std::cout << "Invalid usage." << message << ".\nUsage: " << USAGE << "\n";
@@ -66,7 +71,9 @@ int main(const int argumentCount, char** argumentValues)
 		return -1;
 	}
 
-	std::cout << "Process found.\nInjecting...\n";
+	std::cout << "Process found. ID: ";
+	process.WithId(PrintId);
+	std::cout << "\nInjecting...\n";
 
 	{
 		DllInjector injector{ process };
